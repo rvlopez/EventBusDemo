@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EventBusDemo</string>
+
+    <string name="add_new_message">Add a new message</string>
+    <string name="add_button">Send</string>
+    <string name="go_to_list">Go to list!</string>
+    <string name="test_text">Your message:</string>
+    <string name="message_list_title">Messages list</string>
+    <string name="message_added">Message added successfully</string>
+    <string name="message_info">You can add some text in a list</string>
 </resources>
