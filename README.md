@@ -7,16 +7,15 @@ EventBus in 3 steps
 
     ```java  
     public class GlobalBus {
+        private static EventBus eventBus;
 
-    private static EventBus eventBus;
-
-    public static EventBus getEventBus() {
-        if (eventBus == null) {
-            eventBus =  EventBus.getDefault();
+        public static EventBus getEventBus() {
+            if (eventBus == null) {
+                eventBus =  EventBus.getDefault();
+            }
+            return eventBus;
         }
-        return eventBus;
     }
-}
     ```
 
 2. Prepare subscribers:
