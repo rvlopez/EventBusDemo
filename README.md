@@ -27,7 +27,7 @@ EventBus in 3 steps
     ```
     Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
-   ```java
+    ```java
     @Override
     protected void onStart() {
         super.onStart();
@@ -43,7 +43,7 @@ EventBus in 3 steps
 
 3. Post events:
 
-   ```java
+    ```java
     GlobalBus.getEventBus().postSticky(new EventMessageList(messageList));
     ```
     
