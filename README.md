@@ -22,15 +22,15 @@ EventBus in 3 steps
     Declare and annotate your subscribing method, optionally specify a [thread mode](http://greenrobot.org/eventbus/documentation/delivery-threads-threadmode/):  
 
     ```java
-        @Subscribe(sticky = true)
-        public void onMessageEvent(EventMessageList event) {
+    @Subscribe(sticky = true)
+    public void onMessageEvent(EventMessageList event) {
         /* Do something */
     }
     ```
     Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
    ```java
-        @Override
+    @Override
     protected void onStart() {
         super.onStart();
         GlobalBus.getEventBus().register(this);
