@@ -44,7 +44,7 @@ EventBus in 3 steps
 3. Post events:
 
    ```java
-    EventBus.getDefault().post(new MessageEvent());
+    GlobalBus.getEventBus().postSticky(new EventMessageList(messageList));
     ```
     
 
