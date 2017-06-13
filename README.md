@@ -6,29 +6,41 @@ EventBus in 3 steps
 1. Define events:
 
     ```java  
-    public static class MessageEvent { /* Additional fields if needed */ }
+    public class GlobalBus {
+
+    private static EventBus eventBus;
+
+    public static EventBus getEventBus() {
+        if (eventBus == null) {
+            eventBus =  EventBus.getDefault();
+        }
+        return eventBus;
+    }
+}
     ```
 
 2. Prepare subscribers:
     Declare and annotate your subscribing method, optionally specify a [thread mode](http://greenrobot.org/eventbus/documentation/delivery-threads-threadmode/):  
 
     ```java
-    @Subscribe(threadMode = ThreadMode.MAIN)  
-    public void onMessageEvent(MessageEvent event) {/* Do something */};
+        @Subscribe(sticky = true)
+        public void onMessageEvent(EventMessageList event) {
+        /* Do something */
+    }
     ```
     Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 
    ```java
-    @Override
-    public void onStart() {
+        @Override
+    protected void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
+        GlobalBus.getEventBus().register(this);
     }
- 
+
     @Override
-    public void onStop() {
+    protected void onStop() {
+        GlobalBus.getEventBus().unregister(this);
         super.onStop();
-        EventBus.getDefault().unregister(this);
     }
     ```
 
