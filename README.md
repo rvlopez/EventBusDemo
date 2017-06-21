@@ -11,7 +11,7 @@ EventBus in 3 steps
 
         public static EventBus getEventBus() {
             if (eventBus == null) {
-                eventBus =  EventBus.getDefault();
+                eventBus = EventBus.getDefault();
             }
             return eventBus;
         }
